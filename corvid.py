@@ -1,8 +1,11 @@
 # corvid.py
 # A play on "the raven", this bot responds to a select list of commands from Twitch chat
+#
+# Future plans: put a timeout on commands so they can only be used every [seconds]
 
 import os
 from twitchio.ext import commands
+import time   # to prevent commands from being spammed
 
 raven = commands.Bot(
   # Initial variables, taken from .env
@@ -32,10 +35,27 @@ async def event_message(ctx):
 #===============================#
 # Here are the command triggers #
 #===============================#
+
+# A command which triggers a random quote from Legend of Zelda
 @raven.command(name='link')
 async def link(ctx):
-  # Insert array here and randomize responses
+  link=['"Skyyaaaaaa!" -Link',
+        '"Hyup, heep, hyeaaap!" -Link',
+        '"Hey, listen!" -Navi',
+        '"It\'s dangerous to go alone." -Old Man'
+        '"Am I so beautiful that you\'ve no words left?" -Midna',
+        '"It\'s a secret to everybody." -Moblin',
+        '"HUP!" -Link',
+        '"Courage need not be remembered, for it is never forgotten" -Zelda',
+        '"The wind, it is blowing." -Ganondorf',
+        '"Open your eyes." -Zelda',
+        '"The flow of time is always cruel." -Sheik'
+       ]
   await ctx.send('')
+
+#=========================#
+# End of command triggers #
+#=========================#
 
 
 # Final check
