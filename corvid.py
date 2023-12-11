@@ -77,7 +77,8 @@ async def link(ctx) -> None:
         '"Do you ever feel a strange sadness as dusk falls?" -Rusl',
         '"Would you like to hear that again?" -Kaepora Gaebora',
         '"We\'ll be friends forever. Won\'t we?" -Saria',
-        '"Do you have any idea how that made me feel inside?" -Ghirahim'
+        '"Do you have any idea how that made me feel inside?" -Ghirahim',
+        '"Kaaaaaaaay!" -Fishman'
        ]
   await ctx.send(random.choice(link))
 
@@ -85,6 +86,12 @@ async def link(ctx) -> None:
 @raven.command(name='socials')
 async def soc(ctx) -> None:
   soc="Poetics isn't on any social media but you can find his written works at poeticsonline.net"
+  await ctx.send(soc)
+
+# !who - a command which gives a little about me
+@raven.command(name='who')
+async def soc(ctx) -> None:
+  soc="Poetics (GamingPoet on Twitch) is an author and life-long storyteller, playing games in his spare time. He/Him pronouns"
   await ctx.send(soc)
 
 # !so - a mod-only command which shouts out another streamer
