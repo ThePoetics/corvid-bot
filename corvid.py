@@ -89,10 +89,10 @@ async def soc(ctx) -> None:
   await ctx.send(soc)
 
 # !who - a command which gives a little about me
-@raven.command(name='who')
-async def soc(ctx) -> None:
-  soc="Poetics (GamingPoet on Twitch) is an author and life-long storyteller, playing games in his spare time. He/Him pronouns"
-  await ctx.send(soc)
+@raven.command(name='who',aliases=('poet'))
+async def who(ctx) -> None:
+  who="Poetics (GamingPoet on Twitch) is an author and life-long storyteller, playing games in his spare time. He/Him pronouns"
+  await ctx.send(who)
 
 # !so - a mod-only command which shouts out another streamer
 @raven.command(name='so',aliases=('shoutout'))
@@ -103,7 +103,7 @@ async def so(ctx: commands.Context, streamer: twitchio.PartialChatter) -> None:
 
 # !birdfact - A command which triggers a random fact about birds
 @raven.command(name='birdfact')
-async def link(ctx) -> None:
+async def bird(ctx) -> None:
   bird=["Peregrin falcons are the world's fastest animals, capable of dives over 200mph",
         "Owls can't move their eyes and so have to move their entire head",
         "The common starling can spend over 10 continuous months flying, without any breaks",
@@ -122,7 +122,7 @@ async def link(ctx) -> None:
 
 # !spacefact - A command which triggers a random fact about space
 @raven.command(name='spacefact')
-async def link(ctx) -> None:
+async def space(ctx) -> None:
   space=["The colors shown in images of the Cosmic Microwave Background differ in temperature by less than a millionth of a degree",
          "Enceladus, one of Saturn's moons, is so icy that it reflects 90% of the sun's light",
          "A sideral day is roughly 23.5 hours long, due to the orbit of the Earth around the Sun",
@@ -146,6 +146,7 @@ async def link(ctx) -> None:
          "The Sun takes 240 million years to orbit the center of the Milky Way"
        ]
   await ctx.send(random.choice(space))
+
 
 #=========================#
 # End of command triggers #
