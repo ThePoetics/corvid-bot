@@ -5,6 +5,7 @@
 #                add a list of literary quotes
 #                add a followers command
 #                test the bot somehow
+#                split out the fact commands into other include files?
 
 import os
 from twitchio.ext import commands
@@ -48,40 +49,6 @@ async def event_message(ctx):
 # Here are the command triggers #
 #===============================#
 
-# !link - A command which triggers a random quote from Legend of Zelda
-@raven.command(name='link',aliases=('zelda'))
-async def link(ctx) -> None:
-  link=['"Skyyaaaaaa!" -Link',
-        '"Hyup, heep, hyeaaap!" -Link',
-        '"Hey, listen!" -Navi',
-        '"It\'s dangerous to go alone." -Old Man',
-        '"Am I so beautiful that you\'ve no words left?" -Midna',
-        '"It\'s a secret to everybody." -Moblin',
-        '"HUP!" -Link',
-        '"Heyaaaaaa!" -Link',
-        '"Courage need not be remembered, for it is never forgotten" -Zelda',
-        '"The wind, it is blowing." -Ganondorf',
-        '"Open your eyes." -Zelda',
-        '"The flow of time is always cruel." -Sheik',
-        '"Master, your batteries are depleted." -Fi',
-        '"Aaaaaaaaaaaaaaa!" -Link',
-        '"Time passes, people move." -Sheik',
-        '"Can Hyrule\'s destiny really depend on such a lazy boy?!" -Navi',
-        '"Those who do not know the danger of wielding power will, before long, be ruled by it" -Lanayru',
-        '"My mind is getting hazy" -Flute Kid',
-        '"What makes you happy? I wonder... does it make others happy, too?" -Moon Child',
-        'Your friends... do these people think of you as a friend?" -Moon Child',
-        '"You\'ve met with a terrible fate, haven\'t you?" -Happy Mask Salesman',
-        '"OOOOOOOOH, THANK YOU!" -Beedle',
-        '"When all of this is over, will you come to wake me up?" -Zelda',
-        '"Do you ever feel a strange sadness as dusk falls?" -Rusl',
-        '"Would you like to hear that again?" -Kaepora Gaebora',
-        '"We\'ll be friends forever. Won\'t we?" -Saria',
-        '"Do you have any idea how that made me feel inside?" -Ghirahim',
-        '"Kaaaaaaaay!" -Fishman'
-       ]
-  await ctx.send(random.choice(link))
-
 # !socials - a command which provides links to my (non-existent) socials
 @raven.command(name='socials')
 async def soc(ctx) -> None:
@@ -100,6 +67,19 @@ async def so(ctx: commands.Context, streamer: twitchio.PartialChatter) -> None:
   if (ctx.author.is_mod):
     so="A literary shout-out to our friend @{streamer}! Give them a follow at twitch.tv/{streamer}"
     await ctx.send(so)
+
+# !firstraid - a command to commemorate the first raid I ever received
+@raven.command(name='firstraid')
+async def fr(ctx) -> None:
+  fr="A huge thanks to >><< who was this channel's first raid on >><< with >><< viewers!"
+  await ctx.send(fr)
+
+# !firstsub - a command to commemorate the first sub I ever received
+@raven.command(name='firstsub')
+async def fs(ctx) -> None:
+  fs="A huge thanks to >><< who was this channel's first subscriber on >><<!"
+  await ctx.send(fs)
+
 
 # !birdfact - A command which triggers a random fact about birds
 @raven.command(name='birdfact')
@@ -147,6 +127,39 @@ async def space(ctx) -> None:
        ]
   await ctx.send(random.choice(space))
 
+# !link - A command which triggers a random quote from Legend of Zelda
+@raven.command(name='link',aliases=('zelda'))
+async def link(ctx) -> None:
+  link=['"Skyyaaaaaa!" -Link',
+        '"Hyup, heep, hyeaaap!" -Link',
+        '"Hey, listen!" -Navi',
+        '"It\'s dangerous to go alone." -Old Man',
+        '"Am I so beautiful that you\'ve no words left?" -Midna',
+        '"It\'s a secret to everybody." -Moblin',
+        '"HUP!" -Link',
+        '"Heyaaaaaa!" -Link',
+        '"Courage need not be remembered, for it is never forgotten" -Zelda',
+        '"The wind, it is blowing." -Ganondorf',
+        '"Open your eyes." -Zelda',
+        '"The flow of time is always cruel." -Sheik',
+        '"Master, your batteries are depleted." -Fi',
+        '"Aaaaaaaaaaaaaaa!" -Link',
+        '"Time passes, people move." -Sheik',
+        '"Can Hyrule\'s destiny really depend on such a lazy boy?!" -Navi',
+        '"Those who do not know the danger of wielding power will, before long, be ruled by it" -Lanayru',
+        '"My mind is getting hazy" -Flute Kid',
+        '"What makes you happy? I wonder... does it make others happy, too?" -Moon Child',
+        'Your friends... do these people think of you as a friend?" -Moon Child',
+        '"You\'ve met with a terrible fate, haven\'t you?" -Happy Mask Salesman',
+        '"OOOOOOOOH, THANK YOU!" -Beedle',
+        '"When all of this is over, will you come to wake me up?" -Zelda',
+        '"Do you ever feel a strange sadness as dusk falls?" -Rusl',
+        '"Would you like to hear that again?" -Kaepora Gaebora',
+        '"We\'ll be friends forever. Won\'t we?" -Saria',
+        '"Do you have any idea how that made me feel inside?" -Ghirahim',
+        '"Kaaaaaaaay!" -Fishman'
+       ]
+  await ctx.send(random.choice(link))
 
 #=========================#
 # End of command triggers #
