@@ -3,9 +3,9 @@
 #
 # Future plans:  put a timeout on commands so they can only be used every [seconds]
 #                add a list of literary quotes
-#                add a followers command
+#                add a followers command (for follower count)
 #                test the bot somehow
-#                split out the fact commands into other include files?
+#                split out the fact/list commands into other include files?
 
 import os
 from twitchio.ext import commands
@@ -68,17 +68,23 @@ async def so(ctx: commands.Context, streamer: twitchio.PartialChatter) -> None:
     so="A literary shout-out to our friend @{streamer}! Give them a follow at twitch.tv/{streamer}"
     await ctx.send(so)
 
-# !firstraid - a command to commemorate the first raid I ever received
-@raven.command(name='firstraid')
-async def fr(ctx) -> None:
-  fr="A huge thanks to >><< who was this channel's first raid on >><< with >><< viewers!"
-  await ctx.send(fr)
+## !firstraid - a command to commemorate the first raid I ever received
+#@raven.command(name='firstraid')
+#async def fr(ctx) -> None:
+#  fr="A huge thanks to >><< who was this channel's first raid on >><< with >><< viewers!"
+#  await ctx.send(fr)
 
-# !firstsub - a command to commemorate the first sub I ever received
-@raven.command(name='firstsub')
-async def fs(ctx) -> None:
-  fs="A huge thanks to >><< who was this channel's first subscriber on >><<!"
-  await ctx.send(fs)
+## !firstsub - a command to commemorate the first sub I ever received
+#@raven.command(name='firstsub')
+#async def fs(ctx) -> None:
+#  fs="A huge thanks to >><< who was this channel's first subscriber on >><<!"
+#  await ctx.send(fs)
+
+## !record - a command to celebrate the highest Hype Train
+#@raven.command(name='hype')
+#async def hype(ctx) -> None:
+#  hype="Our biggest hype train ever was Level >><< on >><<!"
+#  await ctx.send(hype)
 
 
 # !birdfact - A command which triggers a random fact about birds
