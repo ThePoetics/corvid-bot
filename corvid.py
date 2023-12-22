@@ -55,6 +55,12 @@ async def soc(ctx) -> None:
   soc="Poetics isn't on any social media but you can find his written works at poeticsonline.net"
   await ctx.send(soc)
 
+# !support - a command to display a tip message and link to my Ko-Fi
+@raven.command(name='support',aliases=('tip'))
+async def support(ctx) -> None:
+  support="Poetics is eternally grateful to all who support him and his storytelling. For those who want to say thank you monitarily, please visit https://ko-fi.com/U6U3CBPO"
+  await ctx.send(support)
+
 # !who - a command which gives a little about me
 @raven.command(name='who',aliases=('poet'))
 async def who(ctx) -> None:
@@ -86,6 +92,24 @@ async def so(ctx: commands.Context, streamer: twitchio.PartialChatter) -> None:
 #  hype="Our biggest hype train ever was Level >><< on >><<!"
 #  await ctx.send(hype)
 
+# !lurk - Random lurk messages posted to chat
+@raven.command(name='lurk',aliases=('away'))
+async def lurk(ctx) -> None:
+  lurk=["{ctx.author.name} is away, lurking in the depths of literature and planning their next adventure",
+        "{ctx.author.name} is off on a quest for inspiration",
+        "{ctx.author.name} is seeking inspiration elsewhere for the time being",
+        "Don't bother {ctx.author.name}, they're in deep thought about what to create next",
+        "{ctx.author.name} sneaks off to read another chapter of a great book",
+        "The clickety-clack from {ctx.author.name}'s keyboard shows they're busy creating new worlds",
+        "{ctx.author.name} is taking a break from taking a break",
+        "There once was a {ctx.author.name} from Nantucket ... no, no, that doesn't rhyme",
+        "It's time for {ctx.author.name} to put their head down and dream of new possibilities for a while",
+        "{ctx.author.name} is off to sharpen their wits for the coming battles",
+        "Has anyone seen {ctx.author.name}? Their stuff is still here so they must be coming back",
+        "{ctx.author.name} is drowning out the world by diving into imagination",
+        "As the Bard once penned, \"Exit {ctx.author.name}, pursued by bear\""
+       ]
+  await ctx.send(random.choice(lurk))
 
 # !birdfact - A command which triggers a random fact about birds
 @raven.command(name='birdfact')
