@@ -58,7 +58,7 @@ async def soc(ctx) -> None:
 # !support - a command to display a tip message and link to my Ko-Fi
 @raven.command(name='support',aliases=('tip'))
 async def support(ctx) -> None:
-  support="Poetics is eternally grateful to all who support him and his storytelling. For those who want to say thank you monitarily, please visit https://ko-fi.com/U6U3CBPO"
+  support="Poetics is eternally grateful to all who support him and his storytelling. For those who want to say thank you monitarily, please visit https://ko-fi.com/U6U3CBPO to tip via Ko-Fi"
   await ctx.send(support)
 
 # !who - a command which gives a little about me
@@ -91,6 +91,12 @@ async def so(ctx: commands.Context, streamer: twitchio.PartialChatter) -> None:
 #async def hype(ctx) -> None:
 #  hype="Our biggest hype train ever was Level >><< on >><<!"
 #  await ctx.send(hype)
+
+# !back - announcing that someone has come back into chat
+@raven.command(name='back',aliases=('wb'))
+async def back(ctx) -> None:
+  back="Let's all welcome {ctx.author.name} back to the writing room!"
+  await ctx.send(back)
 
 # !lurk - Random lurk messages posted to chat
 @raven.command(name='lurk',aliases=('away'))
@@ -187,7 +193,10 @@ async def link(ctx) -> None:
         '"Would you like to hear that again?" -Kaepora Gaebora',
         '"We\'ll be friends forever. Won\'t we?" -Saria',
         '"Do you have any idea how that made me feel inside?" -Ghirahim',
-        '"Kaaaaaaaay!" -Fishman'
+        '"Kaaaaaaaay!" -Fishman',
+        '"A sword has no strength unless the hand that wields it has courage." -Hero\'s Shade',
+        '"May the light of blessing grant you the strength you seek." -Shrine Statues',
+        '"I\'m sure an answer will come to you. Wisdom takes time." -Queen Sonia'
        ]
   await ctx.send(random.choice(link))
 
